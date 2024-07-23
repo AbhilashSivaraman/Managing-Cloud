@@ -89,6 +89,7 @@ export default App;
 // src/components/Login.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './Login.css';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -101,7 +102,7 @@ function Login() {
   };
 
   return (
-    <div>
+    <div className="login-container">
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <div>
@@ -120,6 +121,7 @@ function Login() {
 }
 
 export default Login;
+
 ```
 
 #### Signup Component
@@ -128,6 +130,7 @@ export default Login;
 // src/components/Signup.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './Signup.css';
 
 function Signup() {
   const [email, setEmail] = useState('');
@@ -140,7 +143,7 @@ function Signup() {
   };
 
   return (
-    <div>
+    <div className="signup-container">
       <h2>Signup</h2>
       <form onSubmit={handleSubmit}>
         <div>
@@ -159,6 +162,7 @@ function Signup() {
 }
 
 export default Signup;
+
 ```
 
 ### Home Component
@@ -166,9 +170,14 @@ export default Signup;
 ```jsx
 // src/components/Home.js
 import React from 'react';
+import './Home.css';
 
 function Home() {
-  return <h2>Welcome to the Home Page</h2>;
+  return (
+    <div className="home-container">
+      <h2>Welcome to the Home Page</h2>
+    </div>
+  );
 }
 
 export default Home;
@@ -183,3 +192,127 @@ npm start
 ```
 
 This will start a development server and open your app in the browser. Now you can navigate to `/login` and `/signup` to see your components in action.
+
+For styling your React components, you can use several approaches such as CSS files, CSS Modules, or styled-components. Here's how you can use a CSS file to style the `Login`, `Signup`, and `Home` components.
+
+### Create a CSS File
+
+First, create a CSS file for each component in the `src/components` directory.
+
+#### Login Component CSS (`Login.css`)
+
+```css
+/* src/components/Login.css */
+.login-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+  text-align: center;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-container label {
+  margin-bottom: 5px;
+}
+
+.login-container input {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-container button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-container p {
+  text-align: center;
+}
+```
+
+#### Signup Component CSS (`Signup.css`)
+
+```css
+/* src/components/Signup.css */
+.signup-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.signup-container h2 {
+  text-align: center;
+}
+
+.signup-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-container label {
+  margin-bottom: 5px;
+}
+
+.signup-container input {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.signup-container button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.signup-container p {
+  text-align: center;
+}
+```
+
+#### Home Component CSS (`Home.css`)
+
+```css
+/* src/components/Home.css */
+.home-container {
+  text-align: center;
+  padding: 50px;
+}
+```
+
+### Import CSS Files in Components
+
+Next, import these CSS files in their respective components.
+
+### Running Your App
+
+After setting up the styles, run your React app using:
+
+```bash
+npm start
+```
+
+This will start a development server and open your app in the browser. Now you can see the styled login, signup, and home pages.
